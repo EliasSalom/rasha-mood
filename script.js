@@ -9,7 +9,7 @@ Promise.all([
 ]).then(async () => {
   const randomImageNumber = Math.floor(Math.random() * 56) + 1;
   const imageName = `Image_${randomImageNumber.toString().padStart(3, '0')}`;
-  rashaImage.src= `/images/${imageName}.jpg`;
+  rashaImage.src= `./images/${imageName}.jpg`;
   const detections = await faceapi.detectAllFaces(rashaImage, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
   const expression = getDominantExpression(detections);
   const expressionText = document.createElement('div');
