@@ -14,9 +14,9 @@ Promise.all([
   const expression = getDominantExpression(detections);
   const expressionText = document.createElement('div');
   expressionText.id = 'expression-text';
-  if (expression === "happy")
+  if (expression == "happy")
     expressionText.textContent = `رشروشة اسا سعيدة`;
-  expressionText.textContent = `رشروشة اسا حزينة`;
+  else expressionText.textContent = `رشروشة اسا حزينة`;
   document.body.append(expressionText);
 })
 
