@@ -2,14 +2,14 @@ const rashaImage = document.getElementById('rashaImage')
 const rashaFeeling = document.getElementById("rashaFeeling")
 
 Promise.all([
-  faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
-  faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
-  faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
-  faceapi.nets.faceExpressionNet.loadFromUri('/models')
+  faceapi.nets.tinyFaceDetector.loadFromUri('models'),
+  faceapi.nets.faceLandmark68Net.loadFromUri('models'),
+  faceapi.nets.faceRecognitionNet.loadFromUri('models'),
+  faceapi.nets.faceExpressionNet.loadFromUri('models')
 ]).then(async () => {
   const randomImageNumber = Math.floor(Math.random() * 56) + 1;
   const imageName = `Image_${randomImageNumber.toString().padStart(3, '0')}`;
-  rashaImage.src= `./images/${imageName}.jpg`;
+  rashaImage.src= `images/${imageName}.jpg`;
   const detections = await faceapi.detectAllFaces(rashaImage, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
   const expression = getDominantExpression(detections);
   const expressionText = document.createElement('div');
